@@ -61,10 +61,21 @@ void Stock::update(double price){
 
 void Stock::show(){
     
-    std::cout << "Company: " << company
-    << " Shares: " << shares << ".\n"
-    << " Share price: $" << share_val
-    << " Total worth: $" << total_val << ".\n";
+    using std::cout;
+    using std::ios_base;
+    ios_base::fmtflags orig = cout.setf(ios_base::fixed, ios_base::floatfield);
+    std::streamsize prec = cout.precision(3);
+    
+    cout << "Company: " << company
+    << " Shares: " << shares << "\n"
+    << " Share price: $" << share_val;
+    
+    cout.precision(2);
+    cout << " Total worth: $" << total_val << ".\n";
+    
+    cout.setf(orig, ios_base::floatfield);
+    cout.precision(prec);
+    
     
 }
 
