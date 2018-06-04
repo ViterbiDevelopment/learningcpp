@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "PointA.cpp"
+#include "PointP.cpp"
 
 //c/c++对各种函数指针写法
 
@@ -44,7 +45,17 @@ PFA pfa = &PointA::fuc;
 
 int main(int argc, const char * argv[]) {
     // insert code here...
+    
+    PointP PP;
+    
+    PP.showPoint();
+    
+    
+    return 0;
+}
 
+void testOne(){
+    
     pf = add;
     pf(2,2);
     
@@ -62,10 +73,10 @@ int main(int argc, const char * argv[]) {
     auto *pf1 = add;
     std::cout<<pf1(3,4);
     
-    // c++ 
-//    PointA A;
-//    fun8 afunc = &PointA::fuc;
-//    (A.*afunc)();
+    // c++
+    //    PointA A;
+    //    fun8 afunc = &PointA::fuc;
+    //    (A.*afunc)();
     
     PointA a;
     PointB b;
@@ -76,9 +87,8 @@ int main(int argc, const char * argv[]) {
     pfa = &PointA::fuc2;
     (a.*pfa)();
     (b.*pfa)();
-    
-    return 0;
 }
+
 int (*func4(int))(int,int){
     
     return add;
