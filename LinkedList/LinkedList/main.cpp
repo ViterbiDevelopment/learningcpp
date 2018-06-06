@@ -21,14 +21,18 @@ void LinkListInitHF(LinkList *L);
 void LinkedListInsert(LinkList *L,int i,ElemType x);
 void LinkedListDelete(LinkList *L,ElemType x);
 void LinkedShowAll(LinkList *L);
+void LinkedResert(LinkList *L);
 
 int main(int argc, const char * argv[]) {
   
   LinkList T  = (LinkList)malloc(sizeof(LNode));
   T->next = NULL;
-  printf("输入节点值");
+  printf("输入节点值:\n");
   LinkListInitH(&T);
-
+  LinkedShowAll(&T);
+  
+  LinkedResert(&T);
+  printf("反转后的值顺序: \n");
   LinkedShowAll(&T);
   
   return 0;
@@ -39,7 +43,6 @@ void LinkListInitH(LinkList *L){
   ElemType x;
   
   while (scanf("%d",&x) != EOF) {
-    printf("%d \n",x);
     LinkList p = (LinkList)malloc(sizeof(LNode));
     p->data = x;
     p->next = (*L)->next;
@@ -102,10 +105,46 @@ void LinkedShowAll(LinkList *L){
   
   LinkList star;
   
-  
   for (star = (*L)->next; star != NULL; star = star->next) {
-    printf("输入的值：%d",star->data);
+    printf("输入的值:%d \n",star->data);
   }
+  
+}
+
+void LinkedResert(LinkList *L){
+  
+//  printf("data----%d",(*L)->next->data);
+// 注释的为错误的代码。不知道为什么，逻辑没有错
+//  LinkList p = *L;
+//  LinkList q = (*L)->next;
+//  LinkList r;
+//  (*L)->next = NULL;
+//  printf("开始反转:\n");
+//  while (q) {
+//    printf("data--%d \n",q->data);
+//    r = q->next;
+//    q->next = p;
+//    p = q;
+//    q = r;
+//  }
+//    *L= p;
+  
+  LinkList p,q,pr;
+  p = (*L)->next;
+  q = NULL;
+  (*L)->next = NULL;
+
+  printf("开始反转:\n");
+  while (p) {
+    printf("data--%d \n",p->data);
+    pr = p->next;
+    p->next = q;
+    q = p;
+    p = pr;
+  }
+
+  (*L)->next = q;
+  
   
 }
 
