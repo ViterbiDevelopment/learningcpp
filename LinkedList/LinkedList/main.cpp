@@ -29,11 +29,12 @@ int main(int argc, const char * argv[]) {
   T->next = NULL;
   printf("输入节点值:\n");
   LinkListInitH(&T);
-  LinkedShowAll(&T);
-  
-  LinkedResert(&T);
-  printf("反转后的值顺序: \n");
-  LinkedShowAll(&T);
+  printf("%d-----",T->next->data);
+//  LinkedShowAll(&T);
+//
+//  LinkedResert(&T);
+//  printf("反转后的值顺序: \n");
+//  LinkedShowAll(&T);
   
   return 0;
 }
