@@ -51,7 +51,10 @@ int main(int argc, const char * argv[]) {
   
   popStack(&task);
   
-  std::cout<<task.top->data;
+//  std::cout<<task.top->data<<std::endl;
+//
+  
+  traverse(&task);
   
   return 0;
 }
@@ -97,5 +100,40 @@ bool emptyStack(pCstack stack){
   }else{
     return false;
   }
+}
+
+void clear(pCstack stack){
+  
+  if (!emptyStack(stack)) {
+    
+    pNode p = stack->top;
+    pNode q = NULL;
+    
+    while (p != stack->bottom) {
+      
+      q = p->next;
+      free(p);
+      p = q;
+    }
+    
+    stack->bottom = stack->top;
+    
+  }
+  
+}
+
+void traverse(pCstack stack){
+  
+  if (!emptyStack(stack)) {
+    
+    pNode p = stack->top;
+    
+    while (p != stack->bottom) {
+      
+      std::cout << p->data << std::endl;
+      p = p->next;
+    }
+  }
+  
 }
 
