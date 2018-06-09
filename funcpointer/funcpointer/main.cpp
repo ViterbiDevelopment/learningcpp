@@ -46,11 +46,31 @@ PFA pfa = &PointA::fuc;
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    PointP PP;
-    
-    PP.showPoint();
-    
-    
+//    PointP PP;
+//
+//    PP.showPoint();
+//
+  
+  int a = 3;
+  
+  int *p = &a;
+  
+  int *q = p;
+  
+  std::cout<<"p:"<<p<<std::endl;
+  std::cout<<"q:"<<q<<std::endl;
+  
+  int b = 10;
+  
+  p = &b;
+  
+  std::cout<<"p:"<<p<<std::endl;
+  std::cout<<"q:"<<q<<std::endl;
+  
+  std::cout<<"a:"<<&a<<std::endl;
+  std::cout<<"b:"<<&b<<std::endl;
+  
+  
     return 0;
 }
 
